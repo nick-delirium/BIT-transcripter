@@ -1,13 +1,15 @@
 ### Hello!
 
-This thing can transform string into valid BIT code and beautify it afterwards.
+This app can transform string into valid BIT code, beautify by inserting spaces and breaks and parse into its printing function output afterwards.
 
-[About BIT](http://www.dangermouse.net/esoteric/bit.html)
+[Learn about BIT](http://www.dangermouse.net/esoteric/bit.html)
 
 ``` 
 node BIT.js nameOfFunc argument
 ```
-Functions list:
+
+#### Functions list:
+```
 - beautify:
   argument - './path/to/file' with minified BIT code block;
   outputs  - file with unminified code 'BIT_beautified.txt'
@@ -17,5 +19,5 @@ Functions list:
 - decipher:
   argument - './path/to/file' with minified BIT code block
   output   - deciphred BIT code into readable string 'BIT_decompiled.txt'
-
+```
 ### You can read documentation about every function in /functions folder.
