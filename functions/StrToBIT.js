@@ -8,7 +8,7 @@ const fs       = require('fs'),
  * @param   {number} dec decimal number
  * @returns {number}     binary  number
  */
-const dec2bin = (dec) =>{
+const dec2bin = dec => {
     let bin = '';
     let num = (dec >>> 0).toString(2);
     for (let i = 0; i < num.length; i++) {
@@ -54,7 +54,7 @@ const printBIT = (entry, patterns) => {
         liner     = dec2bin(i);
         linerNext = dec2bin(i+1);
         result += 'LINENUMBER'+liner+'CODEPRINT'+asciiByte+'GOTO'+linerNext;
-    })
+    });
     fs.writeFileSync('./BIT_input.txt', result, 'utf-8')
     console.log('Writed in BIT_input.txt')
 }

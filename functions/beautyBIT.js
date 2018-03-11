@@ -21,8 +21,8 @@ const normalize = (block = './BIT_input.txt', patterns) => {
         started = block,
         start, end;
     
-    while(block != '') {
-        patterns.forEach((pattern, i, patterns) => {
+    while (block != '') {
+        patterns.map((pattern) => {
             if (block.startsWith(pattern)) {
                 start = block.search(pattern);
                 end   = start+pattern.length;
@@ -35,7 +35,7 @@ const normalize = (block = './BIT_input.txt', patterns) => {
                 block = block.substring(end, block.length);
                 l += 1;
                 console.log('\n'+'iteration '+l+result);
-            }    
+            }
         })
     }
     let resulted = 'HERE LIES BEAUTIFUED CODE \n'+started+'\n\n\n'+'goes to \n\n'+result;

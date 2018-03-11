@@ -8,7 +8,7 @@ const fs       = require('fs'),
  * @param   {Array} obj json object
  * @returns {Array} reversed object
  */
-const swap = (obj) => {
+const swap = obj => {
     let reversed = {};
     for (let key in obj) {
         reversed[obj[key]] = key;
@@ -21,7 +21,7 @@ const swap = (obj) => {
  * @param   {stirng} string ASCII bytes collection
  * @returns {string}      decrypted from ASCII bytes to ASCII symbols string
  */
-const decrypt = (string) => {
+const decrypt = string => {
     biteCollection = swap(bites);
     letter = biteCollection[string];
 
@@ -42,14 +42,14 @@ const decompile = (code) => {
         iterator = 0;
         code     = fs.readFileSync(code, 'utf-8');
 
-        while(flag){
+        while (flag) {
             console.log('iteration #'+iterator);
             let startPos = code.search('PRINT')+5,
                 endPos   = code.search('GOTO'),
                 delEnd   = endPos+4,
                 tested   = code.substring(startPos, endPos);
 
-            if(tested.search('ONE') != -1 || tested.search('ZERO') != -1) {
+            if (tested.search('ONE') != -1 || tested.search('ZERO') != -1) {
                 tested == 'ZERO' ? (tested = 0) : (tested = 1);
                 chunk += tested;
                 console.log('string: '+chunk);

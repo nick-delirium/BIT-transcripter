@@ -12,7 +12,7 @@ node BIT.js nameOfFunc argument
 ```
 - beautify:
   argument - './path/to/file' with minified BIT code block;
-  outputs  - file with unminified code 'BIT_beautified.txt'
+  output   - file with unminified code 'BIT_beautified.txt'
 - printBIT:
   argument - 'string' to transform into BIT code;
   output   - file with minified BIT code 'BIT_input.txt'

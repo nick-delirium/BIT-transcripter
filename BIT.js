@@ -10,7 +10,7 @@ const fs       = require('fs'),
  * @param   {number} dec decimal number
  * @returns {number}     binary  number
  */
-const dec2bin = (dec) =>{
+const dec2bin = dec => {
     let bin = '';
     let num = (dec >>> 0).toString(2);
     for (let i = 0; i < num.length; i++) {
@@ -18,14 +18,14 @@ const dec2bin = (dec) =>{
     }
     return bin;
 }
-const swap = (obj) => {
+const swap = obj => {
     let reversed = {};
     for (let key in obj) {
         reversed[obj[key]] = key;
     }
     return reversed;
 }
-const decrypt = (string) => {
+const decrypt = string => {
     biteCollection = swap(bites);
     letter = biteCollection[string];
 
@@ -40,7 +40,7 @@ const collection = {
             start, end;
         
         while(block != '') {
-            patterns.forEach((pattern, i, patterns) => {
+            patterns.map((pattern) => {
                 if (block.startsWith(pattern)) {
                     start = block.search(pattern);
                     end   = start+pattern.length;
@@ -90,7 +90,7 @@ const collection = {
         fs.writeFileSync('./BIT_input.txt', result, 'utf-8')
         console.log('Writed in BIT_input.txt')
     },
-    decipher: (code, patterns) => {
+    decipher: code => {
         let bytes    = [],
             flag     = true,
             chunk    = '',
@@ -108,7 +108,7 @@ const collection = {
     
                 if(tested.search('ONE') != -1 || tested.search('ZERO') != -1) {
                     tested == 'ZERO' ? (tested = 0) : (tested = 1);
-                    chunk += tested;
+                    chunk  += tested;
                     console.log('string: '+chunk);
                     if (chunk.length == 8) {
                         bytes.push(chunk);
