@@ -2,6 +2,12 @@ const fs       = require('fs'),
       patterns = require('./patterns.js'),
       bites    = patterns.bites;
 
+
+/**
+ * Reverse keys and values in object
+ * @param   {Array} obj json object
+ * @returns {Array} reversed object
+ */
 const swap = (obj) => {
     let reversed = {};
     for (let key in obj) {
@@ -10,6 +16,11 @@ const swap = (obj) => {
     return reversed;
 }
 
+/**
+ * Searches in bites for given ASCII bytes collection
+ * @param   {stirng} string ASCII bytes collection
+ * @returns {string}      decrypted from ASCII bytes to ASCII symbols string
+ */
 const decrypt = (string) => {
     biteCollection = swap(bites);
     letter = biteCollection[string];
@@ -17,7 +28,12 @@ const decrypt = (string) => {
     return letter;
 }
 
-const decompile = (code, patterns) => {
+/**
+ * Decompiles BIT code to get a string from it
+ * @param   {string} code BIT-code block
+ * @returns {string}      writes in file 'BIT_decompiled.txt' string from BIT code block
+ */
+const decompile = (code) => {
     let bytes    = [],
         flag     = true,
         chunk    = '',
